@@ -132,7 +132,7 @@ def freeze(dist):
              raise RuntimeError(err)
     for (nm,val) in options.iteritems():
         setattr(cmd,nm,val)
-    cmd.dist_dir = dist.freeze_dir
+    cmd.dist_dir = dist.freeze_dir.encode('ascii')
     cmd.finalize_options()
     #  Actually run the freeze process
     cmd.run()
